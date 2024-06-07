@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="icon" href="/logo.png">
+        <title>Online Medicines | CONTACT US</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='/useracc.js'></script>
+        <link rel="stylesheet" href="/ContactStyle.css">
+        <script>
+            function popup()
+            {
+                alert('Feedback Submitted Successfully');
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li style="font-weight:bold"><a href="http://localhost:3000/Home" target="_self">HACKIE PHARM</a></li>
+                    <li><a href="http://localhost:3000/Medicine" target="_self">MEDICINE</a></li>
+                    <li><a href="http://localhost:3000/HealthCare" target="_self">HEALTH CARE</a></li>
+                    <li><a href="http://localhost:3000/Vaccination" target="_self">VACCINATION</a></li>
+                    <li><a href="http://localhost:3000/Offer" target="_self">OFFERS</a></li>
+                    <li><a href="http://localhost:3000/Contact" target="_self">CONTACT</a></li>
+                    <li><a href="http://localhost:3000/cart" target="_self">CART</a></li>
+                    <li>
+                        <i class="far" style="color:whitesmoke;font-size: 20px;">&#xf2bd; &nbsp;Welcome <%= username %> ! </i></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Contact Us</title>
+                <link rel="stylesheet" href="styles.css">
+            </head>
+            <body>
+                <div class="container">
+                    <h1>Contact Us</h1>
+                    <p>Have a question or feedback? Feel free to reach out to us using the form below.</p>
+                    <form id="contactForm">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <button type="submit" onclick="popup()">Submit</button>
+                    </form>
+                </div>
+                <div class="container">
+                    <dt><b>Customer Support</b> </dt>
+                    <ul>
+                        <li>+044 20222022</li>
+                        <li>hackiepharm@gmail.com</li>
+                    </ul>
+                </div>
+            </body>
+            </html>
+            
+        </section>
+    </body>
+</html>

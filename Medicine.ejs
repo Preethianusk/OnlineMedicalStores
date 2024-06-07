@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="icon" href="/logo.png">
+        <title>Online Medicines | MEDICINE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='/useracc.js'></script>
+        <link rel="stylesheet" href="/MedicineStyle.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li style="font-weight:bold"><a href="http://localhost:3000/Home" target="_self">HACKIE PHARM</a></li>
+                    <li><a href="http://localhost:3000/Medicine" target="_self">MEDICINE</a></li>
+                    <li><a href="http://localhost:3000/HealthCare" target="_self">HEALTH CARE</a></li>
+                    <li><a href="http://localhost:3000/Vaccination" target="_self">VACCINATION</a></li>
+                    <li><a href="http://localhost:3000/Offer" target="_self">OFFERS</a></li>
+                    <li><a href="http://localhost:3000/Contact" target="_self">CONTACT</a></li>
+                    <li><a href="http://localhost:3000/cart" target="_self">CART</a></li>
+                    <li>
+                        <i class="far" style="color:whitesmoke;font-size: 20px;">&#xf2bd; &nbsp;Welcome <%= username %> ! </i></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="/m3.jpg"><br><br><br>
+                    <label> <%= medicine_names[0] %> </label><br><br>
+                    <h3>Price: ₹ <%= medicine_prices[0] %> </h3>
+
+                    <button id="sendDefaults0">BUY NOW</button></a>
+
+                </div>
+                <div class="grid-item">
+                    <img src="/m4.jpg"><br><br><br>
+                    <label><%= medicine_names[1] %></label><br><br>
+                    <h3>Price: ₹ <%= medicine_prices[1] %> </h3>
+
+                    <button id="sendDefaults1">BUY NOW</button></a>
+                </div>
+                <div class="grid-item">
+                    <img src="/m5.jpg"><br><br><br>
+                    <label><%= medicine_names[2] %></label><br><br>
+                    <h3>Price: ₹ <%= medicine_prices[2] %> </h3>
+                    
+                    <button id="sendDefaults2">BUY NOW</button></a>
+                </div>
+                <div class="grid-item">
+                    <img src="/m6.jpg"><br><br><br>
+                    <label><%= medicine_names[3] %></label><br><br>
+                    <h3>Price: ₹ <%= medicine_prices[3] %> </h3>
+                    
+                    <button id="sendDefaults3">BUY NOW</button></a>
+                </div>
+                <div class="grid-item">
+                    <img src="/m7.jpg"><br><br><br>
+                    <label><%= medicine_names[4] %></label><br><br>
+                    <h3>Price: ₹ <%= medicine_prices[4] %> </h3>
+                    
+                    <button id="sendDefaults4">BUY NOW</button></a>
+                </div>
+                <div class="grid-item">
+                    <img src="/m8.jpg"><br><br><br>
+                    <label><%= medicine_names[5] %></label><br><br>
+                    <h3>Price: ₹ <%= medicine_prices[5] %> </h3>
+                    
+                    <button id="sendDefaults5">BUY NOW</button></a>
+                </div>
+                <div class="grid-item">
+                    <img src="/m1.jpg"><br><br><br>
+                    <label><%= medicine_names[6] %></label><br><br>
+                    <h3>Price: ₹ <%= medicine_prices[6] %> </h3>
+                    
+                    <button id="sendDefaults6">BUY NOW</button></a>
+                </div>
+                <div class="grid-item">
+                    <img src="/m2.jpg"><br><br><br>
+                    <label><%= medicine_names[7] %></label><br><br>
+                    <h3>Price: ₹ <%= medicine_prices[7] %> </h3>
+                    
+                    <button id="sendDefaults7">BUY NOW</button></a>
+                </div>
+            </div>
+        </section>
+    
+
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#sendDefaults0').click(function(){
+
+        var defaults = {
+            medicineName: "<%= medicine_names[0] %>",
+            price: "<%= medicine_prices[0] %>"
+        };
+
+        $.ajax({
+            url: '/inscart',
+            method: 'GET',
+            data: defaults,
+            success: function(response){
+            console.log(response);
+            window.location.href = '/cart';
+            },
+            error: function(xhr, status, error){
+            console.error(error);
+            }
+        });
+        });
+        
+
+        $('#sendDefaults1').click(function(){
+
+        var defaults = {
+            medicineName: "<%= medicine_names[1] %>",
+            price: "<%= medicine_prices[1] %>"
+        };
+
+        $.ajax({
+            url: '/inscart',
+            method: 'GET',
+            data: defaults,
+            success: function(response){
+            console.log(response);
+            window.location.href = '/cart';
+            },
+            error: function(xhr, status, error){
+            console.error(error);
+            }
+        });
+        });
+
+
+        $('#sendDefaults2').click(function(){
+
+        var defaults = {
+            medicineName: "<%= medicine_names[2] %>",
+            price: "<%= medicine_prices[2] %>"
+        };
+
+        $.ajax({
+            url: '/inscart',
+            method: 'get',
+            data: defaults,
+            success: function(response){
+            console.log(response);
+            window.location.href = '/cart';
+            },
+            error: function(xhr, status, error){
+            console.error(error);
+            }
+        });
+        });
+
+
+        $('#sendDefaults3').click(function(){
+
+        var defaults = {
+            medicineName: "<%= medicine_names[3] %>",
+            price: "<%= medicine_prices[3] %>"
+        };
+
+        $.ajax({
+            url: '/inscart',
+            method: 'get',
+            data: defaults,
+            success: function(response){
+            console.log(response);
+            window.location.href = '/cart';
+            },
+            error: function(xhr, status, error){
+            console.error(error);
+            }
+        });
+        });
+
+
+        $('#sendDefaults4').click(function(){
+
+        var defaults = {
+            medicineName: "<%= medicine_names[4] %>",
+            price: "<%= medicine_prices[4] %>"
+        };
+
+        $.ajax({
+            url: '/inscart',
+            method: 'get',
+            data: defaults,
+            success: function(response){
+            console.log(response);
+            window.location.href = '/cart';
+            },
+            error: function(xhr, status, error){
+            console.error(error);
+            }
+        });
+        });
+
+
+        $('#sendDefaults5').click(function(){
+
+        var defaults = {
+            medicineName: "<%= medicine_names[5] %>",
+            price: "<%= medicine_prices[5] %>"
+        };
+
+        $.ajax({
+            url: '/inscart',
+            method: 'get',
+            data: defaults,
+            success: function(response){
+            console.log(response);
+            window.location.href = '/cart';
+            },
+            error: function(xhr, status, error){
+            console.error(error);
+            }
+        });
+        });
+
+
+        $('#sendDefaults6').click(function(){
+
+        var defaults = {
+            medicineName: "<%= medicine_names[6] %>",
+            price: "<%= medicine_prices[6] %>"
+        };
+
+        $.ajax({
+            url: '/inscart',
+            method: 'get',
+            data: defaults,
+            success: function(response){
+            console.log(response);
+            window.location.href = '/cart';
+            },
+            error: function(xhr, status, error){
+            console.error(error);
+            }
+        });
+        });
+
+
+        $('#sendDefaults7').click(function(){
+
+        var defaults = {
+            medicineName: "<%= medicine_names[7] %>",
+            price: "<%= medicine_prices[7] %>"
+        };
+
+        $.ajax({
+            url: '/inscart',
+            method: 'get',
+            data: defaults,
+            success: function(response){
+            console.log(response);
+            window.location.href = '/cart';
+            },
+            error: function(xhr, status, error){
+            console.error(error);
+            }
+        });
+        });
+
+    });
+    </script>
+
+    </body>
+</html>        

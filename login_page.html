@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/style1.css">
+  </head>
+
+  <body>
+    <form action="http://localhost:3000/val_login" method="get">
+
+      <h2>LOGIN</h2>
+
+      <div class="form-group fullname">
+        <label for="fullname">Login ID </label>
+        <input type="text" name="loginid" placeholder="Enter login ID">
+      </div>
+
+      <div class="form-group password">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter Password">
+        <i id="pass-toggle-btn" class="fa-solid fa-eye"></i>
+      </div>
+
+      <label for="password">Don't have account? <a href="http://localhost:3000/signup_page">Sign-up</a></label>
+
+      <div class="form-group submit-btn">
+        <input type="submit" value="Submit">
+      </div>
+
+    </form>
+
+    <script>
+      const form = document.querySelector("form");
+      const passwordInput = document.getElementsByName("password")[0];
+  
+      const showError = (field, errorText) => {
+          field.classList.add("error");
+          const errorElement = document.createElement("small");
+          errorElement.classList.add("error-text");
+          errorElement.innerText = errorText;
+          field.closest(".form-group").appendChild(errorElement);
+      }
+  
+      const handleFormData = (e) => {
+          e.preventDefault();
+  
+          const loginidInput = document.getElementsByName("loginid")[0];
+  
+          const fullname = loginidInput.value.trim();
+          const password = passwordInput.value.trim();
+  
+          document.querySelectorAll(".form-group .error").forEach(field => field.classList.remove("error"));
+          document.querySelectorAll(".error-text").forEach(errorText => errorText.remove());
+  
+          let isValid = true;
+  
+          if (fullname === "") {
+              showError(loginidInput, "Enter your LoginID");
+              isValid = false;
+          }
+        
+          if (password === "") {
+              showError(passwordInput, "Enter your password");
+              isValid = false;
+          }
+  
+          if (isValid) {
+              form.submit();
+          }
+      }
+  
+      form.addEventListener("submit", handleFormData);
+  </script>
+  
+  </body>
+</html>

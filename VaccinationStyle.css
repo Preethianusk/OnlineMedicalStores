@@ -1,0 +1,48 @@
+.navbar li{
+    display: inline;
+    margin-left:2%;
+    margin-right:2%;
+}
+.navbar li:hover{
+    font-weight: bold;
+    color:white;
+}
+body{
+    background-color: #17a2b8;
+}
+header{
+    background-color: #2c2c2c;
+    padding:0.5%;
+}
+a{
+    text-decoration: none;
+    color:whitesmoke;
+}
+section{
+    text-align: center;
+}
+h1{
+    font-size: 50px;
+}
+button
+{
+    position: relative;
+    padding:10px;
+    background-color: #2c2c2c;
+    color:whitesmoke;
+    border-radius: 5px;
+}
+button:hover{
+    font-weight: bold;
+}
+.flex-parent{
+    display: flex;
+}
+.jc-center{
+    justify-content: center;
+}
+article{
+    padding:50px;
+    text-align: center;
+}
+

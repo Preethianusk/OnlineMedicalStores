@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    
+    <form action="/update" method="GET">
+        <h2>Update Profile</h2>
+       
+        <div class="form-group fullname">
+        <label for="fullname">Name:</label>
+        <input type="text" id="fullname" name="fullname" value="<%= name %>"><br><br>
+        </div>
+
+        <div class="form-group email">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= email %>"><br><br>
+        </div>
+
+        <div class="form-group date">
+        <label for="date">Date of Birth:</label>
+        <input type="date" id="date" name="date" value="<%= date %>"><br><br>
+        </div>
+
+        <div class="form-group gender">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male" <%= gender === 'Male' ? 'selected' : '' %>>Male</option>
+            <option value="female" <%= gender === 'Female' ? 'selected' : '' %>>Female</option>
+            <option value="other" <%= gender === 'Other' ? 'selected' : '' %>>Other</option>
+        </select>
+        </div>
+
+        <div class="form-group password">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="<%= password %>"><br><br>
+        </div>
+
+        <div class="form-group submit-btn">
+        <input type="submit" value="Update">
+        </div>
+
+    </form>
+
+    <script>
+        const form = document.querySelector("form");
+        const passwordInput = document.getElementsByName("password")[0];
+        const passToggleBtn = document.getElementById("pass-toggle-btn");
+
+        const showError = (field, errorText) => {
+            field.classList.add("error");
+            const errorElement = document.createElement("small");
+            errorElement.classList.add("error-text");
+            errorElement.innerText = errorText;
+            field.closest(".form-group").appendChild(errorElement);
+        }
+
+        const handleFormData = (e) => {
+            e.preventDefault();
+
+            const fullnameInput = document.getElementsByName("name")[0];
+            const emailInput = document.getElementsByName("email")[0];
+            const dateInput = document.getElementsByName("date")[0];
+            const genderInput = document.getElementsByName("gender")[0];
+
+            const fullname = fullnameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+            const date = dateInput.value;
+            const gender = genderInput.value;
+
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            document.querySelectorAll(".form-group .error").forEach(field => field.classList.remove("error"));
+            document.querySelectorAll(".error-text").forEach(errorText => errorText.remove());
+
+            if (fullname === "") {
+                showError(fullnameInput, "Enter your full name");
+            }
+            if (!emailPattern.test(email)) {
+                showError(emailInput, "Enter a valid email address");
+            }
+            if (password === "") {
+                showError(passwordInput, "Enter your password");
+            }
+            if (date === "") {
+                showError(dateInput, "Select your date of birth");
+            }
+            if (gender === "") {
+                showError(genderInput, "Select your gender");
+            }
+
+            const errorInputs = document.querySelectorAll(".form-group .error");
+            if (errorInputs.length > 0) return;
+
+            form.submit();
+        }
+
+        passToggleBtn.addEventListener('click', () => {
+            passToggleBtn.classList.toggle("fa-eye");
+            passToggleBtn.classList.toggle("fa-eye-slash");
+            passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        });
+
+        form.addEventListener("submit", handleFormData);
+    </script>
+</body>
+</html>
